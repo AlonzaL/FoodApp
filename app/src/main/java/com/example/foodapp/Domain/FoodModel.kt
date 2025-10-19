@@ -15,6 +15,6 @@ data class FoodModel(
     var TimeId: Int = 0,
     var TimeValue: Int = 0,
     var Title: String = "",
-    var Colorie: Int = 0,
+    var Calorie: Int = 0,
     var numberInCart: Int = 0
 ): Serializable

@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -97,7 +98,7 @@ fun DetailScreen(
                     item.numberInCart = numberInCart
                 },
                 onDecrement = {
-                    if (numberInCart> 1) {
+                    if (numberInCart > 1) {
                         numberInCart--
                         item.numberInCart = numberInCart
                     }
@@ -112,6 +113,8 @@ fun DetailScreen(
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
             )
+
+            RowDetail(item)
         }
     }
 }
