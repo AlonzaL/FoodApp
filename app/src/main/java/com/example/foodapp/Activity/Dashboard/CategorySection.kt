@@ -1,6 +1,5 @@
 package com.example.foodapp.Activity.Dashboard
 
-import android.R.attr.fontWeight
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.foodapp.Domain.CategoryModel
 import com.example.foodapp.R
-import org.w3c.dom.Text
 
 @Composable
 fun CategorySection(
@@ -38,7 +36,7 @@ fun CategorySection(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(500.dp),
+                .height(350.dp),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator()
