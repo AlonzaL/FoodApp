@@ -1,5 +1,6 @@
 package com.example.foodapp.Activity.ItemsList
 
+import android.content.Intent
 import android.media.Rating
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,7 +31,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
+import com.example.foodapp.Activity.DetailFood.DetailEachFoodActivity
 import com.example.foodapp.Domain.FoodModel
 import com.example.foodapp.Helper.previewFood
 import com.example.foodapp.R
@@ -79,7 +82,10 @@ fun Items(
             )
             .wrapContentHeight()
             .clickable {
-
+                val intent = Intent(context, DetailEachFoodActivity::class.java).apply {
+                    putExtra("object", item)
+                }
+                startActivity(context, intent, null)
             }
     ) {
         FoodImage(item = item)

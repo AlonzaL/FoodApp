@@ -1,8 +1,7 @@
 package com.example.foodapp.Domain
 
-import kotlinx.serialization.Serializable
+import java.io.Serializable
 
-@Serializable
 data class FoodModel(
     var BestFood: Boolean = false,
     var CategoryId: String = "",
@@ -18,4 +17,4 @@ data class FoodModel(
     var Title: String = "",
     var Colorie: Int = 0,
     var numberInCart: Int = 0
-)
+): Serializable

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodApp">
         <activity
+            android:name=".Activity.DetailFood.DetailEachFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ItemsList.ItemsListActivity"
             android:exported="false" />
         <activity
