@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -17,7 +18,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.foodapp.Domain.FoodModel
 import com.example.foodapp.Helper.previewFood
@@ -47,6 +51,7 @@ class DetailEachFoodActivity : AppCompatActivity() {
 }
 
 @Composable
+@Preview
 fun DetailScreenPreview() {
     DetailScreen(
         item = previewFood,
@@ -82,6 +87,30 @@ fun DetailScreen(
             HeaderSection(
                 item = item,
                 onBackClick = onBackClick
+            )
+
+            TitleNumberRow(
+                item = item,
+                numberInCart = numberInCart,
+                onIncrement = {
+                    numberInCart++
+                    item.numberInCart = numberInCart
+                },
+                onDecrement = {
+                    if (numberInCart> 1) {
+                        numberInCart--
+                        item.numberInCart = numberInCart
+                    }
+                }
+            )
+
+            Text(
+                text = "$${item.Price}",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(R.color.black),
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
             )
         }
     }
