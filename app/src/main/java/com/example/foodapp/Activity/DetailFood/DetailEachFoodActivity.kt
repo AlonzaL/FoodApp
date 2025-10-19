@@ -120,5 +120,16 @@ fun DetailScreen(
 
             RecommendedList()
         }
+        FooterSection(
+            onAddToCartClick = onAddToCartClick,
+            totalPrice = (item.Price * numberInCart),
+            modifier = Modifier
+                .constrainAs(footer) {
+                    bottom.linkTo(parent.bottom)
+                    end.linkTo(parent.end)
+                    start.linkTo(parent.start)
+
+                }
+        )
     }
 }
