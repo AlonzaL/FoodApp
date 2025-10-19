@@ -115,6 +115,10 @@ fun DetailScreen(
             )
 
             RowDetail(item)
+
+            DescriptionSection(item.Description)
+
+            RecommendedList()
         }
     }
 }
