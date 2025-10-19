@@ -15,4 +15,8 @@ class MainViewModel {
     fun loadBestFood(): LiveData<MutableList<FoodModel>> {
         return repository.loadBestFood()
     }
+
+    fun loadFilter(id: String): LiveData<MutableList<FoodModel>> {
+        return repository.loadFiltered(id)
+    }
 }

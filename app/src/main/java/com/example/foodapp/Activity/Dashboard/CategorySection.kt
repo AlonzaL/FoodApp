@@ -1,5 +1,6 @@
 package com.example.foodapp.Activity.Dashboard
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +24,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
+import com.example.foodapp.Activity.ItemsList.ItemsListActivity
 import com.example.foodapp.Domain.CategoryModel
 import com.example.foodapp.R
 
@@ -32,7 +35,7 @@ fun CategorySection(
     categories: SnapshotStateList<CategoryModel>,
     showCategoryLoading: Boolean
 ) {
-    if(showCategoryLoading) {
+    if (showCategoryLoading) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -51,9 +54,9 @@ fun CategorySection(
         ) {
             rows.forEach { row ->
                 Row(
-                   modifier = Modifier
-                       .fillMaxWidth()
-                       .padding(vertical = 8.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     row.forEachIndexed { index, categoryModel ->
@@ -63,12 +66,17 @@ fun CategorySection(
                                 .weight(1f)
                                 .padding(horizontal = 12.dp),
                             onItemClick = {
+                                val intent = Intent(context, ItemsListActivity::class.java).apply {
+                                    putExtra("id", categoryModel.Id.toString())
+                                    putExtra("title", categoryModel.Name)
+                                }
 
+                                startActivity(context, intent, null)
                             }
                         )
                     }
 
-                    if(row.size < 3) {
+                    if (row.size < 3) {
                         repeat(3 - row.size) {
                             Spacer(modifier = Modifier.weight(1f))
                         }
